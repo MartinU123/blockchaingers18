@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if ! echo "$(node --version)" | grep -q "v8.9.0"; then
+    printf "\nERROR: You current version of nodejs is $(node --version) - Please install v8.9.0!\n\n";
+    exit 1;
+fi
+
 npm install -g composer-cli@0.19.0
 npm install -g composer-rest-server@0.19.0
 npm install -g generator-hyperledger-composer@0.19.0
